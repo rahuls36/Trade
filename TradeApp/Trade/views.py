@@ -1,4 +1,4 @@
-from django.http import HttpResponseBadRequest, HttpResponse, JsonResponse
+from django.http import HttpResponseBadRequest, HttpResponse, JsonResponse,HttpResponseNotAllowed
 from django.db import IntegrityError
 from django.views import View
 from .models import Symbol
@@ -7,6 +7,7 @@ from collections import defaultdict
 import redis
 import requests
 from .utils import create_currency_data
+from django.shortcuts import reverse
 
 # Redis Connection
 redis_conn = redis.Redis(host='redis', decode_responses=True)
@@ -43,6 +44,10 @@ class Trade(View):
         :param request: request object
         :return:
         """
+
+        if "all" in request.path:
+            return HttpResponseBadRequest('Please check the Request Method and Url')
+
         # Parse the data from the request body
         data = json.loads(request.body.decode()) if request.body else ""
         if not data:
