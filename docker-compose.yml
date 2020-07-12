@@ -3,7 +3,7 @@ version: '3.7'
 services:
   web:
     build: ./TradeApp
-    command: sh -c "python manage.py makemigrations && python manage.py migrate &&
+    command: sh -c "python manage.py migrate &&
                     python manage.py loaddata initial_data && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./TradeApp/:/usr/src/TradeApp/
@@ -11,7 +11,7 @@ services:
       - 8000:8000
     depends_on:
       - redis
-      - synctrades
+
 
   redis:
     image: "redis:alpine"
@@ -20,6 +20,9 @@ services:
 
   synctrades:
     build: ./TradeApp
-    command: sh -c "python manage.py migrate  && python sync_trades.py"
+    command: sh -c "python manage.py migrate && python sync_trades.py"
+    volumes:
+      - ./TradeApp/:/usr/src/TradeApp/
     depends_on:
       - redis
+      - web
