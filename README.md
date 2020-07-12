@@ -6,7 +6,6 @@
 # Endpoints Available
 1. GET /Trades/currency/{symbol}/ - For Getting the Trade Data according to the symbol provided
 2. GET /Trades/currency/all/ - For Getting the Trade Data for all the preconfigured Symbols.
-3. POST /Trades/currency/symbol/ - For Adding new Symbol Data on Local Db
+3. POST /Trades/currency/symbol/ - For Adding new Symbol Data on Local Db It will be automatically subscribed to the Ticker API.
 
-# For Configuring New Symbol
-Add the Symbol in sync_trades.py Symbol Variable
+
