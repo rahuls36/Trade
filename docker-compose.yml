@@ -20,6 +20,6 @@ services:
 
   synctrades:
     build: ./TradeApp
-    command: python sync_trades.py
+    command: sh -c "python manage.py migrate  && python sync_trades.py"
     depends_on:
       - redis
