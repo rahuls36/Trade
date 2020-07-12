@@ -1,5 +1,4 @@
 Django==3.0.7
 requests
 redis
-celery
 websocket-client
