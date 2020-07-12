@@ -5,7 +5,7 @@ import json
 # Redis Connection and Socket,Symbols Configuration
 redis_conn = redis.Redis(host='redis')
 socket = "wss://api.hitbtc.com/api/2/ws"
-Symbols = ["ETHBTC", "BTCUSD","XTZUSD"]
+Symbols = ["ETHBTC", "BTCUSD"]
 
 
 def on_open(ws):
