@@ -11,7 +11,6 @@ Symbols = []
 updated = False
 
 def get_symbols_from_db():
-    print("This is called")
     db_location = os.getcwd() + "/db.sqlite3"
     conn = sqlite3.connect(db_location)
     cursor = conn.cursor()
@@ -46,7 +45,6 @@ def on_message(ws, message):
     :return: None
     """
     get_symbols_from_db()
-    print(Symbols)
     if updated:
         on_open(ws)
     trade_data = json.loads(message).get("params")
