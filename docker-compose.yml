@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  web:
+    build: ./TradeApp
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./TradeApp/:/usr/src/TradeApp/
+    ports:
+      - 8000:8000
+    depends_on:
+      - redis
+      - synctrades
+      - migration
+
+  migration:
+    build: ./TradeApp
+    command: sh -c "python manage.py makemigrations && python manage.py migrate
+                      && python manage.py loaddata initial_data"
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - 6379:6379
+
+  synctrades:
+    build: ./TradeApp
+    command: python sync_trades.py
+    depends_on:
+      - redis

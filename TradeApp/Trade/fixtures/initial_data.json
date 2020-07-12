@@ -1,0 +1,20 @@
+[
+  {
+    "model": "Trade.Symbol",
+    "pk": 1,
+    "fields": {
+      "name": "ETHBTC",
+      "fullName": "Ethereum",
+      "feeCurrency": "ETH"
+    }
+  },
+  {
+    "model": "Trade.Symbol",
+    "pk": 2,
+    "fields": {
+      "name": "BTCUSD",
+      "fullName": "Bitcoin",
+      "feeCurrency": "BTC"
+    }
+  }
+]
