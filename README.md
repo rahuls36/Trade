@@ -8,3 +8,5 @@
 2. GET /Trades/currency/all/ - For Getting the Trade Data for all the preconfigured Symbols.
 3. POST /Trades/currency/symbol/ - For Adding new Symbol Data on Local Db
 
+# For Configuring New Symbol
+Add the Symbol in sync_trades.py Symbol Variable
