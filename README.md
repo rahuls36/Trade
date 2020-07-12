@@ -4,6 +4,7 @@
 3. run docker-compose up
 
 # Endpoints Available
-1. /Trades/currency/{symbol}/
-2. /Trades/currency/all/
+1. GET /Trades/currency/{symbol}/ - For Getting the Trade Data according to the symbol provided
+2. GET /Trades/currency/all/ - For Getting the Trade Data for all the preconfigured Symbols.
+3. POST /Trades/currency/symbol/ - For Adding new Symbol Data on Local Db
 
